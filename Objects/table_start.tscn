@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bbh6u67v0n81w"]
+
+[ext_resource type="Script" uid="uid://cnctduhdiidb6" path="res://Objects/TableStart.cs" id="1_ajmvt"]
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="1_e6rns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajmvt"]
+size = Vector2(6, 34)
+
+[node name="TableStart" type="Node2D" unique_id=1179289274]
+script = ExtResource("1_ajmvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=523637743]
+texture = ExtResource("1_e6rns")
+region_enabled = true
+region_rect = Rect2(384, 1559, 13, 48)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=242257454]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=505511743]
+position = Vector2(10, -11)
+shape = SubResource("RectangleShape2D_ajmvt")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bpy1j4gc22cfi"]
+
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="1_48a2i"]
+[ext_resource type="Script" uid="uid://l707cdrplrhb" path="res://Objects/Beer.cs" id="1_r4623"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4623"]
+size = Vector2(24, 30)
+
+[node name="Beer" type="Area2D" unique_id=649171738]
+script = ExtResource("1_r4623")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461889701]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_r4623")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=496929315]
+texture = ExtResource("1_48a2i")
+region_enabled = true
+region_rect = Rect2(378, 42, 25, 30)

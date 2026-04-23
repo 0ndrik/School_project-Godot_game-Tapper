@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ci3kufuvvqj4w"]
+
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="1_14t5j"]
+[ext_resource type="Script" uid="uid://yqv1dd8j8l4s" path="res://Objects/Tap.cs" id="1_37qtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37qtc"]
+size = Vector2(22, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14t5j"]
+size = Vector2(1, 52)
+
+[node name="Tap" type="Node2D" unique_id=216505452]
+script = ExtResource("1_37qtc")
+
+[node name="Holder" type="Sprite2D" parent="." unique_id=147606754]
+texture = ExtResource("1_14t5j")
+region_enabled = true
+region_rect = Rect2(447, 1539, 42, 64)
+
+[node name="Pipe" type="Sprite2D" parent="." unique_id=2136297816]
+position = Vector2(20, -5)
+texture = ExtResource("1_14t5j")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(82, 21, 18, 27)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1873220515]
+position = Vector2(-256, -240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2017647676]
+position = Vector2(256, 240)
+shape = SubResource("RectangleShape2D_37qtc")
+debug_color = Color(0.98094636, 0, 0.37934965, 0.41960785)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1617773903]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2014294106]
+position = Vector2(11.5, 6)
+shape = SubResource("RectangleShape2D_14t5j")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

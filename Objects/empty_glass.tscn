@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://mtbrc8ndsnbn"]
+
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="1_1mav6"]
+[ext_resource type="Script" uid="uid://dj0ea0yer2r41" path="res://Objects/EmptyGlass.cs" id="1_vcb3s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcb3s"]
+size = Vector2(22, 28)
+
+[node name="EmptyGlass" type="Area2D" unique_id=1683202417]
+script = ExtResource("1_vcb3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=238690361]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_vcb3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=970878971]
+texture = ExtResource("1_1mav6")
+region_enabled = true
+region_rect = Rect2(405, 45, 23, 27)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
