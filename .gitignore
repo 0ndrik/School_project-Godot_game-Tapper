@@ -1,3 +1,21 @@
-# Godot 4+ specific ignores
+# Godot špecifické
+.godot/
+*.import
+export_presets.cfg
+
+# JetBrains (Rider)
+.idea/
+
+# Visual Studio
+.vs/
+*.sln
+*.csproj
+*.user
+bin/
+obj/
+
+# OS veci
+Thumbs.db
+.DS_Store# Godot 4+ specific ignores
 .godot/
 /android/
