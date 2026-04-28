@@ -7,10 +7,10 @@ public partial class CustomerSpawner : Node
     [Export] public Godot.Collections.Array<Marker2D> SpawnPoints { get; set; }
 
     // Základný čas medzi spawnami 
-    [Export] public float BaseSpawnTime { get; set; } = 3.0f;
+    [Export] public float BaseBetweenTime { get; set; } = 3.0f;
 
     // O koľko sekúnd sa môže čas náhodne líšiť 
-    [Export] public float SpawnTimeVariance { get; set; } = 1.5f;
+    [Export] public float TimeVariance { get; set; } = 1.5f;
     
     // Či je spawner aktívny
     [Export] public bool IsSpawning { get; set; } = true;
@@ -36,10 +36,7 @@ public partial class CustomerSpawner : Node
     private void ScheduleNextSpawn()
     {
         // Vypočíta náhodný čas. Ak je Base = 3 a Variance = 1.5, čas bude náhodne medzi 1.5 a 4.5 sekundami.
-        float nextTime = BaseSpawnTime + _rng.RandfRange(-SpawnTimeVariance, SpawnTimeVariance);
-
-        // Poistka, aby čas nikdy nebol extrémne malý alebo záporný
-        nextTime = Mathf.Max(0.5f, nextTime);
+        float nextTime = BaseBetweenTime + _rng.RandfRange(-TimeVariance, TimeVariance);
 
         _spawnTimer.Start(nextTime);
     }

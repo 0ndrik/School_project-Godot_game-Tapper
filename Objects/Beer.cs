@@ -12,9 +12,15 @@ public partial class Beer : Area2D
 		Position += Direction * Speed * (float)delta;
 	}
 
-	public void GetCaught()
+	private bool _isCaught = false;
+	public bool GetCaught()
 	{
+		if (_isCaught)
+			return false;
+
+		_isCaught = true;
 		QueueFree();
+		return true;
 	}
 
 	public void End()

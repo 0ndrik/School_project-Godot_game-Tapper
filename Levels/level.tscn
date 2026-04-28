@@ -167,14 +167,26 @@ BarPositions = [NodePath("../BarmanPoint4"), NodePath("../BarmanPoint3"), NodePa
 flip_h = true
 
 [node name="SpawnPoint1" type="Marker2D" parent="Sprite2D" unique_id=293101175]
-position = Vector2(-305, 142)
+position = Vector2(-328.415, 140)
+
+[node name="SpawnPoint2" type="Marker2D" parent="Sprite2D" unique_id=1745835509]
+position = Vector2(-270, 53)
+
+[node name="SpawnPoint3" type="Marker2D" parent="Sprite2D" unique_id=1153924325]
+position = Vector2(-237, -42)
+
+[node name="SpawnPoint4" type="Marker2D" parent="Sprite2D" unique_id=1924234759]
+position = Vector2(-206, -139)
 
 [node name="CustomerSpawner" type="Node" parent="Sprite2D" unique_id=77437248 node_paths=PackedStringArray("SpawnPoints")]
 script = ExtResource("1_ecu0b")
 CustomerScene = ExtResource("6_t80w2")
-SpawnPoints = [NodePath("../SpawnPoint1")]
-BaseSpawnTime = 5.0
-SpawnTimeVariance = 3.0
+SpawnPoints = [NodePath("../SpawnPoint1"), NodePath("../SpawnPoint2"), NodePath("../SpawnPoint3"), NodePath("../SpawnPoint4")]
+BaseBetweenTime = 10.0
+TimeVariance = 3.0
+
+[node name="Customer" parent="Sprite2D" unique_id=399795911 instance=ExtResource("6_t80w2")]
+position = Vector2(-314, 140)
 
 [node name="UI" parent="." unique_id=1860078382 instance=ExtResource("2_xto7t")]
 

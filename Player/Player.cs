@@ -8,8 +8,9 @@ public partial class Player : CharacterBody2D
     [Export] public Marker2D[] BarPositions { get; set; }
     
     public Tap CurrentTap { get; set; }
-    private bool _isPouring = false;
+    private bool _isPouring = false, _isVerticallyMoving = false;
     private int _currentBarIndex = 0;
+    [Signal] public delegate void MoveEventHandler();
     
     private Sprite2D _sprite;
     private AnimationPlayer _animationPlayer;
@@ -29,7 +30,7 @@ public partial class Player : CharacterBody2D
 
     public override void _PhysicsProcess(double delta)
     {
-        if (_isPouring) return;
+        if (_isPouring || _isVerticallyMoving) return;
 
         if (Input.IsActionJustPressed("interact") && CurrentTap != null)
         {
@@ -38,6 +39,8 @@ public partial class Player : CharacterBody2D
         }
         
         HandleVerticalMovement();
+        if (_isVerticallyMoving) return;
+        
         HandleHorizontalMovement();
         
         MoveAndSlide();
@@ -67,22 +70,26 @@ public partial class Player : CharacterBody2D
         }
     }
     
-    private void HandleVerticalMovement()
+    private async void HandleVerticalMovement()
     {
-        // Skontrolujeme, či máme nastavené nejaké pozície barov, inak nerobíme nič
         if (BarPositions == null || BarPositions.Length == 0) return;
 
         bool moved = false;
-
-        // Pohyb hore (predpokladáme, že menší index = vyššie na obrazovke)
+        
         if (Input.IsActionJustPressed("ui_up") && _currentBarIndex > 0)
         {
+            _isVerticallyMoving = true;
+            _animationPlayer.Play("move");
+            await ToSignal(this, SignalName.Move);
             _currentBarIndex--;
             moved = true;
         }
-        // Pohyb dole
+ 
         else if (Input.IsActionJustPressed("ui_down") && _currentBarIndex < BarPositions.Length - 1)
         {
+            _isVerticallyMoving = true;
+            _animationPlayer.Play("move");
+            await ToSignal(this, SignalName.Move);
             _currentBarIndex++;
             moved = true;
         }
@@ -90,6 +97,7 @@ public partial class Player : CharacterBody2D
         // Ak hráč stlačil šípku a mohol sa pohnúť, aktualizujeme jeho Y pozíciu
         if (moved)
         {
+            _isVerticallyMoving = false;
             GlobalPosition = BarPositions[_currentBarIndex].GlobalPosition;
             _sprite.FlipH = true;
             
