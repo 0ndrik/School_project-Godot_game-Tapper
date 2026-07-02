@@ -14,10 +14,17 @@ texture = ExtResource("1_e6rns")
 region_enabled = true
 region_rect = Rect2(384, 1559, 13, 48)
 
-[node name="Area2D" type="Area2D" parent="." unique_id=242257454]
+[node name="GlassEnd" type="Area2D" parent="." unique_id=242257454]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=505511743]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GlassEnd" unique_id=505511743]
 position = Vector2(43, -11)
 shape = SubResource("RectangleShape2D_ajmvt")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="CustomerEnd" type="Area2D" parent="." unique_id=1087097104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CustomerEnd" unique_id=2055415340]
+position = Vector2(9, -11)
+shape = SubResource("RectangleShape2D_ajmvt")
+
+[connection signal="area_entered" from="GlassEnd" to="." method="_on_glass_end_area_entered"]
+[connection signal="area_entered" from="CustomerEnd" to="." method="_on_customer_end_area_entered"]

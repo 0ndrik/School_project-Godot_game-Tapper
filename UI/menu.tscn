@@ -1,41 +1,62 @@
 [gd_scene format=3 uid="uid://b1pscdg7ksest"]
 
 [ext_resource type="Script" uid="uid://b1kr3qr12bfya" path="res://UI/Menu.cs" id="1_0h2wq"]
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="2_4hkxj"]
+[ext_resource type="Theme" uid="uid://d23wacm0i0wlj" path="res://Assets/button_menu.tres" id="2_wfiwe"]
+[ext_resource type="Texture2D" uid="uid://dfxjnmgok6hr2" path="res://Assets/tapper_logo.png" id="3_qmqfe"]
+[ext_resource type="Texture2D" uid="uid://c1cx1o0tpcs3y" path="res://Assets/The_Simpsons_yellow_logo.png" id="5_e05sn"]
 
 [node name="Menu" type="Control" unique_id=1688150517]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -29.0
-offset_right = -4.0
-offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0h2wq")
 
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=391231352]
+position = Vector2(428, 240)
+texture = ExtResource("2_4hkxj")
+region_enabled = true
+region_rect = Rect2(1, 1631, 855, 481)
+
+[node name="logo" type="Sprite2D" parent="." unique_id=1845872109]
+position = Vector2(429.00003, 198.00002)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("3_qmqfe")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1405904571]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -131.5
-offset_top = -33.0
-offset_right = 131.5
-offset_bottom = 33.0
+anchors_preset = -1
+anchor_left = 0.5078033
+anchor_top = 0.7418334
+anchor_right = 0.5078033
+anchor_bottom = 0.7418334
+offset_left = -129.66403
+offset_top = -81.08002
+offset_right = 128.83597
+offset_bottom = 80.91998
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = -4
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=373152339]
 layout_mode = 2
+theme = ExtResource("2_wfiwe")
 text = "PLAY"
 
 [node name="Button2" type="Button" parent="VBoxContainer" unique_id=242112474]
 layout_mode = 2
+theme = ExtResource("2_wfiwe")
 text = "EXIT"
+
+[node name="TheSimpsonsYellowLogo" type="Sprite2D" parent="." unique_id=448174891]
+position = Vector2(589, 236.99998)
+rotation = -0.23212878
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_e05sn")
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

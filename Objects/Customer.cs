@@ -7,6 +7,7 @@ public partial class Customer : Area2D
     [Export] public float WalkSpeed { get; set; } = 30.0f; 
     [Export] public float SlideBackSpeed { get; set; } = 150.0f;
     [Export] public float SlideBackSec { get; set; } = 0.6f;
+    [Export] public float GoingDownSpeed { get; set; } = 15.0f;
     [Export] public PackedScene EmptyGlassScene { get; set; }
 
     public Vector2 Direction { get; set; } = Vector2.Right;
@@ -25,7 +26,8 @@ public partial class Customer : Area2D
     {
         Walking,
         SlidingBack,
-        Drinking
+        Drinking,
+        End
     }
 
     private CustomerState _currentState = CustomerState.Walking;
@@ -61,7 +63,6 @@ public partial class Customer : Area2D
     {
         if (_currentState == CustomerState.Walking)
         {
-            // --- UPRAVENÉ: Dynamicky lepíme názov animácie ---
             _animationPlayer.Play($"walk_{_mySkinIndex}");
             Position += Direction * WalkSpeed * (float)delta;
         }
@@ -73,6 +74,12 @@ public partial class Customer : Area2D
         else if (_currentState == CustomerState.Drinking)
         {
              _animationPlayer.Play($"drink_{_mySkinIndex}");
+        }
+        else if (_currentState == CustomerState.End)
+        {
+            _animationPlayer.Play($"shout_{_mySkinIndex}");
+            Direction = Vector2.Down;
+            Position += Direction * GoingDownSpeed * (float)delta;
         }
     }
 
@@ -100,6 +107,11 @@ public partial class Customer : Area2D
         if (_canGoOut)
             QueueFree();
     }
+
+    public void GotToTheStart()
+    {
+        _currentState = CustomerState.End;
+    }
     
     private void ThrowEmptyGlass()
     {
@@ -110,10 +122,13 @@ public partial class Customer : Area2D
 
     private void _on_animation_player_animation_finished(StringName animName)
     {
-        // --- UPRAVENÉ: Kontrolujeme, či skončila animácia pitia konkrétneho zákazníka ---
         if (animName == $"drink_{_mySkinIndex}")
         {
             _currentState = CustomerState.Walking;
+        }
+        else if (animName == $"shout_{_mySkinIndex}")
+        {
+            QueueFree(); //levelEnd
         }
     }
 }

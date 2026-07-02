@@ -3,15 +3,19 @@ using System;
 
 public partial class TableStart : Node2D
 {
-	public void _on_area_2d_area_entered(Area2D area)
+	public void _on_glass_end_area_entered(Area2D area)
 	{
 		if (area is EmptyGlass glass)
 		{
 			glass.Break();
 		}
-		else if (area is Customer customer)
+	}
+
+	public void _on_customer_end_area_entered(Area2D area)
+	{
+		if (area is Customer customer)
 		{
-			 
+			customer.GotToTheStart();
 		}
 	}
 }

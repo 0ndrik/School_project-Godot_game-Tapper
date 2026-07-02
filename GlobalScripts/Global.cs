@@ -2,5 +2,5 @@
 
 public static class Global
 {
-    //skuska
+    public static int Score = 0;
 }

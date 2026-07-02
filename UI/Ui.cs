@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using ZapoctovaHra.Globals;
 
 public partial class Ui : CanvasLayer
 {
@@ -7,6 +8,6 @@ public partial class Ui : CanvasLayer
 	[Export] public CharacterBody2D player;
 	public override void _Process(double delta)
 	{
-		
+		ScoreLabel.Text = Global.Score.ToString();
 	}
 }

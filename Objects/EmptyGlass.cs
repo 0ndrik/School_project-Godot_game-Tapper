@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using ZapoctovaHra.Globals;
 
 public partial class EmptyGlass : Area2D
 {
@@ -26,6 +27,7 @@ public partial class EmptyGlass : Area2D
 
 	private void GetCaught()
 	{
+		Global.Score++;
 		QueueFree();
 	}
 

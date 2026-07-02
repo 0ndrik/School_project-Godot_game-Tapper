@@ -13,7 +13,10 @@ config_version=5
 config/name="Zapoctova Hra"
 run/main_scene="uid://cbwnogd7wv7rv"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://v03cg6r6rcl6"
 config/icon="res://Assets/icon.svg"
+boot_splash/minimum_display_time=2000
 
 [display]
 
