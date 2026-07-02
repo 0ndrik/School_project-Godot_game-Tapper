@@ -42,12 +42,12 @@ grow_vertical = 2
 theme_override_constants/separation = -4
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=373152339]
+[node name="Play" type="Button" parent="VBoxContainer" unique_id=373152339]
 layout_mode = 2
 theme = ExtResource("2_wfiwe")
 text = "PLAY"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=242112474]
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=242112474]
 layout_mode = 2
 theme = ExtResource("2_wfiwe")
 text = "EXIT"
@@ -58,5 +58,5 @@ rotation = -0.23212878
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("5_e05sn")
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

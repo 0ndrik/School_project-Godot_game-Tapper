@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cgwqrb04pmsui" path="res://Objects/Customer.cs" id="1_q7x7l"]
 [ext_resource type="PackedScene" uid="uid://mtbrc8ndsnbn" path="res://Objects/empty_glass.tscn" id="2_7mhha"]
 [ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="2_dj6k5"]
+[ext_resource type="PackedScene" uid="uid://crkv2fjated1d" path="res://Objects/tips.tscn" id="3_7mhha"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mhha"]
 size = Vector2(26, 31)
@@ -535,7 +536,7 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id="Animation_7mhha"]
 resource_name = "shout_0"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -596,10 +597,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-3, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoDown"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qc3ja"]
 resource_name = "shout_1"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -660,10 +675,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-3, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoDown"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_fvrum"]
 resource_name = "shout_2"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -724,10 +753,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-3, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoDown"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_7bdlb"]
 resource_name = "shout_3"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -788,10 +831,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-3, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoDown"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_yv31g"]
 resource_name = "shout_4"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -852,10 +909,24 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(-3, 0)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoDown"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_isu0f"]
 resource_name = "shout_5"
-length = 0.5
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -915,6 +986,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-3, 0)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"GoDown"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_k7d5e"]
@@ -1717,6 +1802,7 @@ _data = {
 [node name="Customer" type="Area2D" unique_id=399795911]
 script = ExtResource("1_q7x7l")
 EmptyGlassScene = ExtResource("2_7mhha")
+TipScene = ExtResource("3_7mhha")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=345860877]
 position = Vector2(0, -0.5)

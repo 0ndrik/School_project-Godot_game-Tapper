@@ -1,6 +1,4 @@
 using Godot;
-using System;
-using ZapoctovaHra.Globals;
 
 public partial class EmptyGlass : Area2D
 {
@@ -14,6 +12,7 @@ public partial class EmptyGlass : Area2D
 	public override void _Ready()
 	{
 		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		ZIndex = 3;
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -36,6 +35,8 @@ public partial class EmptyGlass : Area2D
 		_broke = true;
 		_animationPlayer.Play("break");
 		await ToSignal(_animationPlayer, AnimationPlayer.SignalName.AnimationFinished);
+
+		Global.NumOfLives--;
 		
 		QueueFree();
 	}

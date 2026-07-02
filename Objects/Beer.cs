@@ -5,8 +5,12 @@ public partial class Beer : Area2D
 {
 	[Export] public float Speed { get; set; } = 300.0f;
 	public Vector2 Direction { get; set; } = Vector2.Left;
-	
-	
+
+	public override void _Ready()
+	{
+		ZIndex = 3;
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Position += Direction * Speed * (float)delta;
@@ -26,5 +30,6 @@ public partial class Beer : Area2D
 	public void End()
 	{
 		QueueFree();
+		Global.NumOfLives--;
 	}
 }

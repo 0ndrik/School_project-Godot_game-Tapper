@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbwnogd7wv7rv"]
 
 [ext_resource type="Script" uid="uid://bv28xk5pd1ld3" path="res://Mechanics/CustomerSpawner.cs" id="1_ecu0b"]
+[ext_resource type="Script" uid="uid://dckdud31msio7" path="res://Levels/Level.cs" id="1_t2u7g"]
 [ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="1_wav5q"]
 [ext_resource type="PackedScene" uid="uid://c1l6vu3qnrj5o" path="res://UI/ui.tscn" id="2_xto7t"]
 [ext_resource type="PackedScene" uid="uid://bbh6u67v0n81w" path="res://Objects/table_start.tscn" id="3_8a2b0"]
@@ -8,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://ci3kufuvvqj4w" path="res://Objects/tap.tscn" id="3_xto7t"]
 [ext_resource type="PackedScene" uid="uid://dpe4ro30bwj0c" path="res://Objects/Table_End.tscn" id="4_uhyyw"]
 [ext_resource type="PackedScene" uid="uid://bhywt0d1ychty" path="res://Objects/customer.tscn" id="6_t80w2"]
+[ext_resource type="PackedScene" uid="uid://crkv2fjated1d" path="res://Objects/tips.tscn" id="10_vx8ih"]
 
 [node name="Level" type="Node2D" unique_id=1962190634]
+script = ExtResource("1_t2u7g")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=14885081]
 position = Vector2(427, 241)
@@ -18,6 +21,7 @@ region_enabled = true
 region_rect = Rect2(1, 1632, 854, 481)
 
 [node name="Table1" type="Node2D" parent="Sprite2D" unique_id=1841620398]
+z_index = 2
 position = Vector2(-15, 49)
 
 [node name="TableEnd" parent="Sprite2D/Table1" unique_id=1937547523 instance=ExtResource("4_uhyyw")]
@@ -45,6 +49,7 @@ region_rect = Rect2(74, 1559, 176, 48)
 position = Vector2(240, 131)
 
 [node name="Table2" type="Node2D" parent="Sprite2D" unique_id=612112867]
+z_index = 2
 position = Vector2(-444, -190)
 
 [node name="TableEnd" parent="Sprite2D/Table2" unique_id=668973801 instance=ExtResource("4_uhyyw")]
@@ -78,6 +83,7 @@ region_rect = Rect2(272, 1559, 64, 48)
 position = Vector2(652, 275)
 
 [node name="Table3" type="Node2D" parent="Sprite2D" unique_id=634056990]
+z_index = 2
 position = Vector2(-438, -201)
 
 [node name="TableEnd" parent="Sprite2D/Table3" unique_id=1540326699 instance=ExtResource("4_uhyyw")]
@@ -105,6 +111,7 @@ region_rect = Rect2(272, 1559, 64, 48)
 position = Vector2(614, 192)
 
 [node name="Table4" type="Node2D" parent="Sprite2D" unique_id=480660544]
+z_index = 2
 position = Vector2(-431, -212)
 
 [node name="TableEnd" parent="Sprite2D/Table4" unique_id=1164612932 instance=ExtResource("4_uhyyw")]
@@ -186,7 +193,11 @@ BaseBetweenTime = 10.0
 TimeVariance = 3.0
 
 [node name="Customer" parent="Sprite2D" unique_id=399795911 instance=ExtResource("6_t80w2")]
-position = Vector2(-314, 140)
+z_index = 1
+position = Vector2(-292, 148)
+
+[node name="Tips" parent="Sprite2D" unique_id=1843838397 instance=ExtResource("10_vx8ih")]
+position = Vector2(165, -25)
 
 [node name="UI" parent="." unique_id=1860078382 instance=ExtResource("2_xto7t")]
 

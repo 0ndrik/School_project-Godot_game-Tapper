@@ -1,5 +1,4 @@
 ﻿using Godot;
-using System;
 
 public partial class CustomerSpawner : Node
 {
@@ -16,7 +15,7 @@ public partial class CustomerSpawner : Node
     [Export] public bool IsSpawning { get; set; } = true;
 
     private Timer _spawnTimer;
-    private RandomNumberGenerator _rng = new RandomNumberGenerator();
+    private RandomNumberGenerator _rng = new();
 
     public override void _Ready()
     {
@@ -60,6 +59,7 @@ public partial class CustomerSpawner : Node
         
         Node2D customer = CustomerScene.Instantiate<Node2D>();
         customer.GlobalPosition = spawnPoint.GlobalPosition;
+        customer.ZIndex = 1;
         GetTree().CurrentScene.AddChild(customer);
         
         // Voliteľné: Ak tvoj zákazník potrebuje vedieť, na ktorom je pulte (napr. výška Y), 

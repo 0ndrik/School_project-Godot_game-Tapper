@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://dmlk654o1squo"]
+
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="1_pcng8"]
+[ext_resource type="Script" uid="uid://dltux2dt1o5f6" path="res://UI/EndScreen.cs" id="1_r4sma"]
+[ext_resource type="FontFile" uid="uid://dx4kbugp57m6x" path="res://Assets/leapfont-bold.ttf" id="2_5p2us"]
+[ext_resource type="Theme" uid="uid://d23wacm0i0wlj" path="res://Assets/button_menu.tres" id="3_5p2us"]
+
+[node name="EndScreen" type="Control" unique_id=1646017036]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r4sma")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1131947004]
+position = Vector2(428, 240)
+texture = ExtResource("1_pcng8")
+region_enabled = true
+region_rect = Rect2(1, 1631, 855, 481)
+
+[node name="Label" type="Label" parent="." unique_id=1817252097]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 126.0
+offset_right = 568.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(0.98039216, 0.13725491, 0.02745098, 1)
+theme_override_fonts/font = ExtResource("2_5p2us")
+theme_override_font_sizes/font_size = 55
+text = "GAME OVER"
+
+[node name="Score" type="Label" parent="." unique_id=1473424516]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -48.0
+offset_right = 118.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9647059, 0.80784315, 0.40392157, 1)
+theme_override_fonts/font = ExtResource("2_5p2us")
+theme_override_font_sizes/font_size = 45
+text = "Score: 47"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BestScore" type="Label" parent="." unique_id=1908358251]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -2.0
+offset_right = 129.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9647059, 0.80784315, 0.40392157, 1)
+theme_override_fonts/font = ExtResource("2_5p2us")
+theme_override_font_sizes/font_size = 35
+text = "Best Score: 473"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewRecord" type="Label" parent="." unique_id=1456207404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.0
+offset_top = 39.0
+offset_right = 131.0
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.43529412, 0.20392157, 1)
+theme_override_fonts/font = ExtResource("2_5p2us")
+theme_override_font_sizes/font_size = 35
+text = "NEW RECORD!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=712787491]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 87.0
+offset_right = 132.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -20
+
+[node name="Again" type="Button" parent="VBoxContainer" unique_id=1479323499]
+layout_mode = 2
+theme = ExtResource("3_5p2us")
+text = "TRY AGAIN"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=1209312309]
+layout_mode = 2
+theme = ExtResource("3_5p2us")
+text = "EXIT TO MENU"
+
+[connection signal="pressed" from="VBoxContainer/Again" to="." method="_on_again_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

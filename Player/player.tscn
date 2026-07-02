@@ -501,6 +501,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1715337038 node_paths=PackedStringArray("BarPositions")]
+z_index = 5
 script = ExtResource("1_4ntmi")
 BeerScene = ExtResource("2_btcbx")
 BarPositions = []

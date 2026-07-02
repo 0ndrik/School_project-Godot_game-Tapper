@@ -132,6 +132,6 @@ public partial class Player : CharacterBody2D
     {
         Beer newBeer = BeerScene.Instantiate<Beer>();
         newBeer.GlobalPosition = _beerSpawnMarker.GlobalPosition;
-        GetTree().Root.AddChild(newBeer);
+        GetTree().CurrentScene.AddChild(newBeer);
     }
 }

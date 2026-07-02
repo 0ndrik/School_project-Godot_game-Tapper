@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://dw53ujh8vq1ie" path="res://UI/Ui.cs" id="1_2fwl4"]
 [ext_resource type="FontFile" uid="uid://dx4kbugp57m6x" path="res://Assets/leapfont-bold.ttf" id="2_dajm1"]
+[ext_resource type="Texture2D" uid="uid://dgqi6b7yj7aem" path="res://Assets/extended.png" id="3_e6gg6"]
 
-[node name="UI" type="CanvasLayer" unique_id=1860078382 node_paths=PackedStringArray("ScoreLabel")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hat8c"]
+atlas = ExtResource("3_e6gg6")
+region = Rect2(378, 42, 25, 30)
+
+[node name="UI" type="CanvasLayer" unique_id=1860078382 node_paths=PackedStringArray("ScoreLabel", "LivesTextures")]
 script = ExtResource("1_2fwl4")
 ScoreLabel = NodePath("Label")
+LivesTextures = [NodePath("VBoxContainer/TextureRect"), NodePath("VBoxContainer/TextureRect2"), NodePath("VBoxContainer/TextureRect3")]
 
 [node name="Label" type="Label" parent="." unique_id=1409642189]
 offset_left = 637.0
@@ -16,3 +22,31 @@ theme_override_fonts/font = ExtResource("2_dajm1")
 theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2052954553]
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 69.0
+offset_bottom = 158.0
+theme_override_constants/separation = 8
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=1889008750]
+custom_minimum_size = Vector2(37.5, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hat8c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer" unique_id=2123761708]
+custom_minimum_size = Vector2(37.5, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hat8c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer" unique_id=1454623064]
+custom_minimum_size = Vector2(37.5, 45)
+layout_mode = 2
+texture = SubResource("AtlasTexture_hat8c")
+expand_mode = 1
+stretch_mode = 5
